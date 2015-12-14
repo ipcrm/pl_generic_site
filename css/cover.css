@@ -2,6 +2,7 @@
  * Globals
  */
 
+
 /* Links */
 a,
 a:focus,
@@ -170,40 +171,11 @@ body {
   text-decoration: none;
 }
 
-@keyframes fadeInOut { 0% { opacity: 0; } 16% { opacity: 1; } 84% { opacity: 1; } 100% { opacity: 0; } }
-@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-@-webkit-keyframes fadeInOut { 0% { opacity: 0; } 16% { opacity: 1; } 84% { opacity: 1; } 100% { opacity: 0; } }
-@-webkit-keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-
-.fadeInOut {
-  opacity: 0;
-	-webkit-animation:fadeInOut ease;
-	-moz-animation:fadeInOut ease;
-	animation:fadeInOut ease;
-
-	-webkit-animation-fill-mode:forwards;
-	-moz-animation-fill-mode:forwards;
-	animation-fill-mode:forwards;
-
-  -webkit-animation-duration:5s;
-	-moz-animation-duration:5s;
-	animation-duration:5s;
-
-}
-.fadeIn {
-  opacity: 0;
-	-webkit-animation:fadeIn ease;
-	-moz-animation:fadeIn ease;
-	animation:fadeIn ease;
-	-webkit-animation-fill-mode:forwards;
-	-moz-animation-fill-mode:forwards;
-	animation-fill-mode:forwards;
-  -webkit-animation-duration:5s;
-	-moz-animation-duration:5s;
-	animation-duration:5s;
+.jfadeInOut, .jfadeIn {
+  display: none;
 }
 
-.fadeInOut img, .fadeIn img {
+.jfadeInOut img, .jfadeIn img {
   width: 700px;
   position:absolute;
   left:0;
@@ -211,36 +183,6 @@ body {
   top: 120px;
   margin-left:auto;
   margin-right:auto;
-}
-
-.fadeInOut.define {
-  -webkit-animation-delay: 1.7s;
-  -moz-animation-delay: 1.7s;
-  animation-delay: 1.7s;
-}
-
-.fadeInOut.simulate {
--webkit-animation-delay: 5.7s;
--moz-animation-delay: 5.7s;
-animation-delay: 5.7s;
-}
-
-.fadeInOut.enforce {
--webkit-animation-delay: 9.7s;
--moz-animation-delay: 9.7s;
-animation-delay: 9.7s;
-}
-
-.fadeInOut.report {
--webkit-animation-delay: 13.7s;
--moz-animation-delay: 13.7s;
-animation-delay: 13.7s;
-}
-
-.fadeIn.approach {
--webkit-animation-delay: 17.7s;
--moz-animation-delay: 17.7s;
-animation-delay: 17.7s;
 }
 
 .pl_content {

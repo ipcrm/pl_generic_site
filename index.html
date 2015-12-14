@@ -11,45 +11,56 @@
 
     <title>Puppet Labs Example Site</title>
 
+
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
 
+
     <!-- Custom styles for this template -->
     <link href="css/cover.css" rel="stylesheet">
+
+    <!-- jQuery -->
+    <script src="js/jquery-2.1.4.min.js"></script>
+
+    <!-- Site Script -->
+    <script type="text/javascript" >
+      $(document).ready(function () {
+          $('div.jfadeInOut.define').delay(1000).fadeIn(2000).delay(4000).fadeOut(1000);
+          $('div.jfadeInOut.simulate').delay(8000).fadeIn(1000).delay(4000).fadeOut(1000);
+          $('div.jfadeInOut.enforce').delay(14000).fadeIn(1000).delay(4000).fadeOut(1000);
+          $('div.jfadeInOut.report').delay(20000).fadeIn(1000).delay(4000).fadeOut(1000);
+          $('div.jfadeIn.approach').delay(26000).fadeIn(2000);
+      });
+    </script>
   </head>
-
   <body>
-
     <div class="site-wrapper">
-
       <div class="site-wrapper-inner">
-
         <div class="cover-container">
               <a href="."><img class="logo_img fade-in one" src="img/logo.png" alt="Puppet Labs Sample Image" /></a>
-
           <div class="masthead clearfix">
             <div class="inner">
             </div>
           </div>
 
           <div class ="pl_content">
-              <div class="fadeInOut define"> <img src="img/define.png" alt="Puppet Labs" /> </div>
-              <div class="fadeInOut simulate"> <img src="img/simulate.png" alt="Puppet Labs" /> </div>
-              <div class="fadeInOut enforce"> <img src="img/enforce.png" alt="Puppet Labs" /> </div>
-              <div class="fadeInOut report"> <img src="img/report.png" alt="Puppet Labs" /> </div>
-              <div class="fadeIn approach"> <img src="img/approach.png" alt="Puppet Labs" /> </div>
+            <!-- No Script -->
+            <noscript>
+                <h1 style="color: white">JavaScript is disabled. Please enable to view content.</h1>
+            </noscript>
+            <div class="jfadeInOut define"> <img src="img/define.png" alt="Puppet Labs" /> </div>
+            <div class="jfadeInOut simulate"> <img src="img/simulate.png" alt="Puppet Labs" /> </div>
+            <div class="jfadeInOut enforce"> <img src="img/enforce.png" alt="Puppet Labs" /> </div>
+            <div class="jfadeInOut report"> <img src="img/report.png" alt="Puppet Labs" /> </div>
+            <div class="jfadeIn approach"> <img src="img/approach.png" alt="Puppet Labs" /> </div>
           </div>
 
           <div class="mastfoot">
             <div class="inner">
             </div>
           </div>
-
         </div>
-
       </div>
-
     </div>
-
   </body>
 </html>

@@ -1,0 +1,28 @@
+ipcrm/pl_generic_site:
+  Build:
+    - zip -r pl_generic_site.zip .
+  PkgInclude:
+    - pl_generic_site.zip
+  PreInstall:
+    - echo "Enabling Features...."
+    - powershell.exe -Command "Enable-WindowsOptionalFeature -Online -FeatureName IIS-WebServerRole | Out-null"
+    - powershell.exe -Command "Enable-WindowsOptionalFeature -Online -FeatureName IIS-WebServer | Out-null"
+    - powershell.exe -Command "Enable-WindowsOptionalFeature -Online -FeatureName IIS-CommonHttpFeatures | Out-null"
+    - powershell.exe -Command "Enable-WindowsOptionalFeature -Online -FeatureName IIS-HttpErrors | Out-null"
+    - powershell.exe -Command "Enable-WindowsOptionalFeature -Online -FeatureName IIS-HttpRedirect | Out-null"
+    - powershell.exe -Command "Enable-WindowsOptionalFeature -Online -FeatureName IIS-HttpLogging | Out-null"
+    - echo Stopping Default Web Site....
+    - powershell.exe -Command "stop-website 'Default Web Site'"
+    - echo "Removing old WWW Content..."
+    - rmdir "C:\inetpub\wwwroot" /s /q
+  PostInstall:
+    - echo "Extracting Source...."
+    - powershell.exe -Command "Expand-Archive -Path ./pl_generic_site.zip -DestinationPath 'C:/inetpub/wwwroot'"
+  Start:
+    - echo "Re-Starting Default Web Site..."
+    - powershell.exe -Command "start-website 'Default Web Site'"
+  PostStart:
+    - echo "Enabling Port 80 in the Firewall..."
+    - netsh advfirewall firewall add rule name="Open Port 80" dir=in action=allow protocol=TCP localport=80
+    - echo "Get Public IP"
+    - powershell.exe -Command "echo $(Invoke-RestMethod http://ipinfo.io/json)"

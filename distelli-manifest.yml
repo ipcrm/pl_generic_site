@@ -1,5 +1,6 @@
 ipcrm/pl_generic_site:
   Build:
+    - echo $DISTELLI_RELBRANCH
     - zip -r pl_generic_site.zip .
   PkgInclude:
     - pl_generic_site.zip
